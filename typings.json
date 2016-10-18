@@ -1,0 +1,15 @@
+{
+  "globalDependencies": {
+    "boom": "registry:dt/boom#0.0.0+20160724101333",
+    "cookies": "registry:dt/cookies#0.5.1+20160316171810",
+    "koa": "registry:dt/koa#2.0.0+20160724024233",
+    "koa-bodyparser": "registry:dt/koa-bodyparser#3.0.0+20160928122441",
+    "koa-router": "registry:dt/koa-router#7.0.0+20160907102352",
+    "node": "registry:dt/node#6.0.0+20161014191813",
+    "request-promise": "registry:dt/request-promise#4.1.0+20161013074249"
+  },
+  "dependencies": {
+    "bluebird": "registry:npm/bluebird#3.4.1+20160909132857",
+    "request": "registry:npm/request#2.69.0+20160428223725"
+  }
+}
