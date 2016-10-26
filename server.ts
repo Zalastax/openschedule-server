@@ -17,16 +17,11 @@ process.on("uncaughtException", (error: any) => console.error("uncaught exceptio
 // or for latest node - https://nodejs.org/api/process.html#process_event_unhandledrejection
 process.on("unhandledRejection", (error: any) => console.error("unhandled rejection:", error))
 
-
-
 const app = new Koa()
 const port = parseInt(process.env.NODE_PORT || process.env.PORT || process.argv[2], 10) || 3000
 const host = process.env.NODE_HOST || process.env.HOST || "0.0.0.0"
 
-const server = http.createServer(app.callback())
-
 const router = new KoaRouter()
-
 
 app.use(async (ctx, next) => {
   try {
@@ -57,10 +52,6 @@ app.use(async (ctx, next) => {
   }
 })
 
-router.get("/", async (ctx, next) => {
-  ctx.body = "HEY GURL"
-})
-
 router.get("/proxy/:path", async (ctx, next) => {
   const req = request(ctx.params.path)
 
@@ -73,6 +64,8 @@ router.get("/proxy/:path", async (ctx, next) => {
 
 app.use(cors())
 app.use(router.routes()).use(router.allowedMethods())
+
+const server = http.createServer(app.callback())
 
 // start the server
 server.listen(port, host, (err: Error) => {
