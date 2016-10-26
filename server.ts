@@ -57,6 +57,10 @@ app.use(async (ctx, next) => {
   }
 })
 
+router.get("/", async (ctx, next) => {
+  ctx.body = "HEY GURL"
+})
+
 router.get("/proxy/:path", async (ctx, next) => {
   const req = request(ctx.params.path)
 
